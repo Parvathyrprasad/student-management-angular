@@ -1,12 +1,28 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+
+import { Component, ViewChild } from '@angular/core';
+import { Student } from './models/student';
+import { StudentService } from './services/student';
+import { StudentListComponent } from './components/student-list/student-list';
+import { StudentFormComponent } from './components/student-form/student-form';
 
 @Component({
-  imports: [RouterOutlet],
   selector: 'app-root',
-  styleUrl: './app.css',
+  standalone: true,
+  imports: [StudentListComponent, StudentFormComponent],
   templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('student-management-angular');
+export class AppComponent {
+
+  @ViewChild(StudentListComponent)
+  studentList!: StudentListComponent;
+
+  constructor(private studentService: StudentService) {}
+
+  addStudent(student: Student): void {
+    this.studentService.addStudent(student);
+    this.studentList.loadStudents();
+    console.log('New student added:', student);
+  }
 }
+

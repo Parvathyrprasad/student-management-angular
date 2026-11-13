@@ -1,0 +1,60 @@
+
+.list-container {
+  margin-top: 25px;
+}
+
+.list-container h2 {
+  color: #1e293b;
+  margin-bottom: 20px;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.list-container h3 {
+  color: #334155;
+  margin-bottom: 18px;
+}
+
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.student-wrapper {
+  min-width: 0;
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.delete-btn:hover {
+  background: #991b1b;
+}
+
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+  }
+}

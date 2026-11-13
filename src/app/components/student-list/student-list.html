@@ -1,0 +1,45 @@
+
+<div class="list-container">
+
+  <h2>All Students</h2>
+
+  <div class="filters">
+    <input
+      type="text"
+      placeholder="Search student by name..."
+      [(ngModel)]="searchText">
+
+    <select [(ngModel)]="selectedCourse">
+      <option value="All">All Courses</option>
+      <option value="Angular">Angular</option>
+      <option value="React">React</option>
+      <option value="Java">Java</option>
+      <option value="Python">Python</option>
+      <option value="Go">Go</option>
+    </select>
+  </div>
+
+  <h3>Total Students: {{ students.length }}</h3>
+
+  <div class="student-grid">
+
+    @for (student of filteredStudents; track student.id) {
+      <div class="student-wrapper">
+
+        <app-student-card [student]="student">
+        </app-student-card>
+
+        <button
+          class="delete-btn"
+          (click)="deleteStudent(student.id)">
+          Delete
+        </button>
+
+      </div>
+    } @empty {
+      <p>No students found.</p>
+    }
+
+  </div>
+
+</div>

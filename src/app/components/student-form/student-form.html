@@ -1,0 +1,58 @@
+
+<div class="form-container">
+
+  <h2>Add New Student</h2>
+
+  <form (ngSubmit)="submitStudent()">
+
+    <div class="form-group">
+      <label>Student Name</label>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="newStudent.name"
+        placeholder="Enter student name"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label>Course</label>
+      <select
+        name="course"
+        [(ngModel)]="newStudent.course"
+        required>
+        <option value="" disabled>Select Course</option>
+        <option value="Angular">Angular</option>
+        <option value="React">React</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="Go">Go</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Fees</label>
+      <input
+        type="number"
+        name="fees"
+        [(ngModel)]="newStudent.fees"
+        placeholder="Enter fees"
+        min="1"
+        required>
+    </div>
+
+    <div class="form-group">
+      <label>Status</label>
+      <select
+        name="status"
+        [(ngModel)]="newStudent.status">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+
+    <button type="submit">Add Student</button>
+
+  </form>
+</div>
+

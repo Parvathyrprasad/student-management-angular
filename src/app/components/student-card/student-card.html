@@ -1,0 +1,20 @@
+
+<div class="student-card"
+     [appHighlight]="student.status === 'Active'">
+
+  <div class="card-header">
+    <h3>{{ student.name | capitalize }}</h3>
+
+    <span [class.active]="student.status === 'Active'"
+          [class.inactive]="student.status === 'Inactive'">
+      {{ student.status }}
+    </span>
+  </div>
+
+  <div class="student-details">
+    <p><strong>Student ID:</strong> {{ student.id }}</p>
+    <p><strong>Course:</strong> {{ student.course }}</p>
+   <p><strong>Fees:</strong> {{ student.fees | inrCurrency }}</p>
+  </div>
+
+</div>
